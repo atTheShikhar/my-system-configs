@@ -14,14 +14,19 @@ set undofile
 set incsearch
 set backspace=indent,eol,start
 set clipboard+=unnamedplus
+set number
+set relativenumber
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 " Keymapping to exit form insert mode
 inoremap kj <ESC>
 
+" Toggle relative line number
+nmap <C-L><C-L> :set invrelativenumber<CR>
+
 call plug#begin('~/.vim/plugged')
 
-Plug 'morhetz/gruvbox'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
@@ -34,7 +39,8 @@ call plug#end()
 let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-eslint', 'coc-tsserver']
 
 " gruvbox dark theme for vim
-autocmd vimenter * ++nested colorscheme gruvbox
+" autocmd vimenter * ++nested
+colorscheme dracula
 set background=dark
 
 " NERDTree file explorer config
