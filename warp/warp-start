@@ -1,0 +1,11 @@
+#!/bin/bash
+
+while true;
+do
+    STR=$(warp-cli status)
+    if [[ "$STR" != *"Connected"* ]]; then
+        warp-cli connect > /dev/null
+    fi
+    sleep 1
+done
+
